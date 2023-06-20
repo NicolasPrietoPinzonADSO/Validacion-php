@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <script src="main.js"></script>
+    <h1>Formulario</h1>
+    
+    <form method="post" action="recibir.php">
+        <p>
+            <label>Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+        </p>
+        <p>
+            <label>Apellido</label>
+            <input type="text" name="apellido" id="apellido"><br>
+        </p>
+        <label>Telefono</label>
+        <input type="text" name="telefono" id="telefono"><br>
+        <p>
+            <label>Correo</label>
+            <input type="text" name="email" id="email"><br>
+        </p>
+        <label>Edad</label>
+        <input type="text" name="edad" id="edad"><br>
+        <div>
+            <input type="submit" onclick="validar()">
+        </div>
+        
+    </form>
+</body>
+
+</html>
