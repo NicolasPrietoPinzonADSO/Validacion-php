@@ -6,35 +6,90 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="main.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 </head>
-
 <body>
-    <script src="main.js"></script>
-    <h1>Formulario</h1>
-    
-    <form method="post" action="recibir.php">
-        <p>
-            <label>Nombre</label>
-            <input type="text" name="nombre" id="nombre">
-        </p>
-        <p>
-            <label>Apellido</label>
-            <input type="text" name="apellido" id="apellido"><br>
-        </p>
-        <label>Telefono</label>
-        <input type="text" name="telefono" id="telefono"><br>
-        <p>
-            <label>Correo</label>
-            <input type="text" name="email" id="email"><br>
-        </p>
-        <label>Edad</label>
-        <input type="text" name="edad" id="edad"><br>
-        <div>
-            <input type="submit" onclick="validar()">
+  <script>
+        function validar() {
+            let nombre = document.getElementById("nombre").value;
+            let apellido = document.getElementById("apellido").value;
+            let telefono = document.getElementById("telefono").value;
+            let email = document.getElementById("email").value;
+            let edad = document.getElementById("edad").value;
+            let sexo = document.querySelector('input[name="sexo"]:checked').value;
+            let pasar = false;
+
+            if (nombre.length == 0) {
+                alert("El campo de nombre esta vacio, por favor llene todos los campos")
+                pasar = true;
+            }
+            if (apellido.length == 0) {
+                alert("El campo de apellido esta vacio, por favor llene todos los campos")
+                pasar = true;
+            }
+            if (telefono.length == 0) {
+                alert("El campo de telefono esta vacio, por favor llene todos los campos")
+                pasar = true;
+            }
+            if (email.length == 0) {
+                alert("El campo de email esta vacio, por favor llene todos los campos")
+                pasar = true;
+            }
+            if (edad.length == 0) {
+                alert("El campo de edad esta vacio, por favor llene todos los campos")
+                pasar = true;
+            }
+            if (!sexo){
+                alert("Seleccione un genero")
+                pasar=true;
+            }
+            if (!pasar) {
+                document.getElementById("form").submit();
+            }
+
+        }
+    </script>
+
+
+    <div class="container">
+        <h1 class="text-center mt-5">Formulario</h1>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <form method="post" action="recibir.php" id="form">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" >
+              </div>
+              <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input type="text" class="form-control" id="apellido" name="apellido" >
+              </div>
+              <div class="mb-3">
+                <label for="telefono" class="">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" name="telefono" >
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Correo</label>
+                <input type="email" class="form-control" id="email" name="email" >
+              </div>
+              <div class="mb-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="number" class="form-control" id="edad" name="edad" >
+              </div>
+              <div class="mb-3">
+                <p><label for="" class="">Elija su sexo</label></p>
+                <p><input name="sexo" type="radio" value="Masculino">  Masculino</p>
+                <p><input name="sexo" type="radio" value="Femenino"> Femenino</p>
+              </div>
+              <div class="text-center">
+                <button type="button" class="btn btn-primary" onclick="validar()">Enviar</button>
+              </div>
+              
+            </form>
+          </div>
         </div>
-        
-    </form>
+      </div>
 </body>
 
 </html>
